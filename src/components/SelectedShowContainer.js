@@ -48,7 +48,7 @@ function SelectedShowContainer(props) {
   );
 }
 
-export SelectedShowContainer;
+export default SelectedShowContainer;
 
 Array.prototype.unique = function () {
   const arr = [];
