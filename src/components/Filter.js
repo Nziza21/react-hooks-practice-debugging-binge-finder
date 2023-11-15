@@ -1,24 +1,28 @@
 import React from "react";
 
 function Filter(props) {
+  const generateRatingOptions = (start, end) => {
+    const options = [];
+    options.push(<option key="noFilter" value="">No Filter</option>);
+
+    for (let i = start; i <= end; i++) {
+      options.push(<option key={i} value={i}>{i}</option>);
+    }
+
+    return options;
+  };
+
   return (
     <div>
-      <h4> Filter By Rating </h4>
+      <label htmlFor="ratingFilter"><h4>Filter By Rating</h4></label>
       <select
-        placeholder="Filter by average rating"
+        id="ratingFilter"
         onChange={props.handleFilter}
       >
-        <option>No Filter</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
+        {generateRatingOptions(1, 9)}
       </select>
     </div>
   );
 }
+
+export default Filter;
